@@ -20,7 +20,7 @@ public class WardrobeController {
         return wardrobeRepository.findAll();
     }
 
-    @PutMapping("/update")
+    @PutMapping("/update/{id}")
     public Wardrobe updateWardrobe(@PathVariable int id, @RequestBody Wardrobe newWardrobe){
         return wardrobeRepository.findById(id)
                 .map(clothes -> {
@@ -29,11 +29,7 @@ public class WardrobeController {
                     clothes.setAmount(newWardrobe.getAmount());
                     clothes.setSize(newWardrobe.getSize());
                     clothes.setColor(newWardrobe.getColor());
-                    if(!newWardrobe.isHave()){
-                        clothes.setHave(true);
-                    } else {
-                        clothes.setHave(newWardrobe.isHave());
-                    }
+                    clothes.setHave(newWardrobe.isHave());
                     return wardrobeRepository.save(clothes);
                 }).orElseThrow(() -> new Error("Item not found"));
     }
