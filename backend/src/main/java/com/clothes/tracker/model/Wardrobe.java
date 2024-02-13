@@ -10,7 +10,7 @@ public class Wardrobe extends AbstractEntity{
     private int amount; // number of each item
     private String color; // color of clothing item
     private String size; // size of clothing item
-    private boolean have; // true if you have, false if you need
+    private boolean have = false; // true if you have, false if you need
 
     public Wardrobe(String type, String style, int amount, String color, String size, boolean have) {
         this.type = type;

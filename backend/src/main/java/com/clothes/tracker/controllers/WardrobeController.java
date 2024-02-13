@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Wardrobe")
+@RequestMapping("/wardrobe")
 public class WardrobeController {
 
     @Autowired
     private WardrobeRepository wardrobeRepository;
 
-    @GetMapping()
+    @GetMapping("/all")
     public List<Wardrobe> displayAllItems(){
         return wardrobeRepository.findAll();
     }
 
-    @PutMapping()
+    @PutMapping("/update")
     public Wardrobe updateWardrobe(@PathVariable int id, @RequestBody Wardrobe newWardrobe){
         return wardrobeRepository.findById(id)
                 .map(clothes -> {
