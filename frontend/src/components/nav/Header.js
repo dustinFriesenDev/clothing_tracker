@@ -1,4 +1,5 @@
 import React from "react";
+import Home from "../pages/Home";
 // import './Header.css';
 // import { useAuth0 } from '@auth0/auth0-react';
 // import LogoutButton from '../auth/LogoutButton';
@@ -14,7 +15,7 @@ export default function Header() {
                             <li><LogoutButton/></li>
                         </>
                     )} */}
-                    <li>logout</li>
+                    <li><a href="/">logout</a></li>
                 </ul>
             </nav>
         </header>

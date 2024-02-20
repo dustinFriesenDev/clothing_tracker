@@ -1,13 +1,13 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { useAuth0 } from '@auth0/auth0-react';
 
-import Header from './components/nav/Header';
-import Footer from './components/nav/Footer';
+import Header from './components/nav/Header.js';
+import Footer from './components/nav/Footer.js';
 // import LoginButton from './components/auth/LoginButton';
-import Home from './components/pages/Home';
-import Wardrobe from './components/pages/Wardrobe';
+import Home from './components/pages/Home.js';
+import Wardrobe from './components/pages/Wardrobe.js';
 
 function App() {
   // const { isLoading, error, isAuthenticated } = useAuth0();
@@ -15,21 +15,9 @@ function App() {
     <main>
     <Router className="header">
     <Header/>
-    {/* {error && <p>Authentication Error</p>}
-    {!error && isLoading && <p>Loading...</p>}
-    {!error && !isLoading && (
-      <>
-      <LoginButton/>
-      </>
-    )} */}
       <Routes>
-      <Route path='/wardrobe' element={<Wardrobe/>} />
-        {/* Show these pages only if the user is authenticated */}
-        {/* {isAuthenticated && (
-          <>
-            <Route path='/wardrobe' element={<Wardrobe/>} />
-          </>
-        )} */}
+        <Route exact path='/' element={<Home/>} />
+        <Route path='/wardrobe' element={<Wardrobe/>} />
       </Routes>
         <Footer />
     </Router>

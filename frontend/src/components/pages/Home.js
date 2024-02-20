@@ -4,7 +4,7 @@ import React from "react"
 
 const Home = () => {
     return (
-        <a href="../pages/Wardrobe.js">Login</a>
+        <a href="./Wardrobe">Login</a>
     // <LoginButton/>;
     )
 }
