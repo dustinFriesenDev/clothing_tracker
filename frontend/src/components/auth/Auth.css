@@ -1,0 +1,45 @@
+.login-button {
+  padding: 0;
+  background-color: transparent;
+  color: #452E16; 
+  cursor: pointer;
+  position: absolute;
+  top: 26px;
+  right: 35px;
+  }
+
+  .login-button:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    padding: 0;
+    position: absolute;
+    top: 26px;
+    right: 35px;
+  }
+
+  .logout-button {
+    padding: 0;
+    background-color: transparent;
+    color: #452E16; 
+    cursor: pointer;
+    position: absolute;
+    top: 26px;
+    right: 35px;
+  }
+
+  .logout-button:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    padding: 0;
+    position: absolute;
+    top: 26px;
+    right: 35px;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: #4CAF50;
+  }
