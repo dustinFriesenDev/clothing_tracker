@@ -62,7 +62,84 @@ const Wardrobe = () => {
         </div>
         <div className="shirts">
             <h2>Shirts</h2>
-            <h3></h3>
+            <div className="shirt-collection">
+               <h3>Shirt 1</h3>
+                <label>Color: 
+                    <select>
+                        <option value="black">Black</option>
+                        <option value="black">Blue</option>
+                        <option value="black">Grey</option>
+                    </select>
+                </label>
+                <label>Have It
+                    <input type="checkbox" name="shirt" />
+                </label>
+            </div>
+            <div className="shirt-collection">
+               <h3>Shirt 2</h3>
+                <label>Color: 
+                    <select>
+                        <option value="black">Black</option>
+                        <option value="black">Blue</option>
+                        <option value="black">Grey</option>
+                    </select>
+                </label>
+                <label>Have It
+                    <input type="checkbox" name="shirt 2" />
+                </label>
+            </div>
+            <div className="shirt-collection">
+               <h3>Shirt 3</h3>
+                <label>Color: 
+                    <select>
+                        <option value="black">Black</option>
+                        <option value="black">Blue</option>
+                        <option value="black">Grey</option>
+                    </select>
+                </label>
+                <label>Have It
+                    <input type="checkbox" name="shirt 3" />
+                </label>
+            </div>
+            <div className="shirt-collection">
+               <h3>Shirt 4</h3>
+                <label>Color: 
+                    <select>
+                        <option value="black">Black</option>
+                        <option value="black">Blue</option>
+                        <option value="black">Grey</option>
+                    </select>
+                </label>
+                <label>Have It
+                    <input type="checkbox" name="shirt 4" />
+                </label>
+            </div>
+            <div className="shirt-collection">
+               <h3>Shirt 5</h3>
+                <label>Color: 
+                    <select>
+                        <option value="black">Black</option>
+                        <option value="black">Blue</option>
+                        <option value="black">Grey</option>
+                    </select>
+                </label>
+                <label>Have It
+                    <input type="checkbox" name="shirt 5" />
+                </label>
+            </div>
+            <div className="shirt-collection">
+               <h3>Shirt 6</h3>
+                <label>Color: 
+                    <select>
+                        <option value="black">Black</option>
+                        <option value="black">Blue</option>
+                        <option value="black">Grey</option>
+                    </select>
+                </label>
+                <label>Have It
+                    <input type="checkbox" name="shirt6" />
+                </label>
+            </div>
         </div>
         <div className="pants">
             <h2>Pants</h2>
