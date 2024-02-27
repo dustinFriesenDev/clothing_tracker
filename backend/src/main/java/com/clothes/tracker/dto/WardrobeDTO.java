@@ -7,6 +7,7 @@ public class WardrobeDTO {
     private int amount;
     private String color;
     private String size;
+    private String season;
     private boolean have;
 
     public WardrobeDTO(){}
@@ -49,6 +50,14 @@ public class WardrobeDTO {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    public String getSeason() {
+        return season;
+    }
+
+    public void setSeason(String season) {
+        this.season = season;
     }
 
     public boolean isHave() {

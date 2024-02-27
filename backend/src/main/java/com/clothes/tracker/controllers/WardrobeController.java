@@ -24,11 +24,12 @@ public class WardrobeController {
     public Wardrobe updateWardrobe(@PathVariable int id, @RequestBody Wardrobe newWardrobe){
         return wardrobeRepository.findById(id)
                 .map(clothes -> {
-                    clothes.setType(newWardrobe.getType());
-                    clothes.setStyle(newWardrobe.getStyle());
-                    clothes.setAmount(newWardrobe.getAmount());
-                    clothes.setSize(newWardrobe.getSize());
-                    clothes.setColor(newWardrobe.getColor());
+//                    clothes.setType(newWardrobe.getType());
+//                    clothes.setStyle(newWardrobe.getStyle());
+//                    clothes.setAmount(newWardrobe.getAmount());
+//                    clothes.setSize(newWardrobe.getSize());
+//                    clothes.setColor(newWardrobe.getColor());
+//                    clothes.setSeason(newWardrobe.getSeason());
                     clothes.setHave(newWardrobe.isHave());
                     return wardrobeRepository.save(clothes);
                 }).orElseThrow(() -> new Error("Item not found"));

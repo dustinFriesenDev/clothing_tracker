@@ -10,14 +10,16 @@ public class Wardrobe extends AbstractEntity{
     private int amount; // number of each item
     private String color; // color of clothing item
     private String size; // size of clothing item
+    private String season; //categories: summer, winter, fall, spring
     private boolean have = false; // true if you have, false if you need
 
-    public Wardrobe(String type, String style, int amount, String color, String size, boolean have) {
+    public Wardrobe(String type, String style, int amount, String color, String size, String season, boolean have) {
         this.type = type;
         this.style = style;
         this.amount = amount;
         this.color = color;
         this.size = size;
+        this.season = season;
         this.have = have;
     }
 
@@ -61,6 +63,14 @@ public class Wardrobe extends AbstractEntity{
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    public String getSeason() {
+        return season;
+    }
+
+    public void setSeason(String season) {
+        this.season = season;
     }
 
     public boolean isHave() {

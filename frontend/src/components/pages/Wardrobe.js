@@ -1,9 +1,34 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 const Wardrobe = () => {
+    const [id, setId] = useState("");
+    const [Have, setHave] = useState();
+
+    function iHaveThat() {
+        const finalFormEndpointUpdate = "http://localhost:8080/wardrobe/update/" + id;
+        const updatedData = {
+            "have" : Have
+        };
+
+        fetch(finalFormEndpointUpdate, {
+            method: "PUT",
+            headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedData),
+        })
+            .then((response) => {
+            return response.json();
+            })
+            .then((updatedDate) => {});
+    }
     return (
         <>
-        <h1>My Wardrobe</h1>
+        <div>
+            <h1 className="sticky">My Wardrobe</h1>
+            <button type="button" className="sticky" onSubmit={iHaveThat}>Save</button>
+        </div>
         <div className="suit">
             <h2>Suit</h2>
             <div className="sub-suit">
@@ -153,6 +178,15 @@ const Wardrobe = () => {
             <h2>Underwear</h2>
             <h3></h3>
         </div>
+        <div className="sleepwear">
+            <h2>Sleepwear</h2>
+            <h3></h3>
+        </div>
+        <div className="belt">
+            <h2>Belts</h2>
+            <h3></h3>
+        </div>
+
         </>
     )
 
