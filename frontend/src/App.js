@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './index.css';
 // import { useAuth0 } from '@auth0/auth0-react';
 
 import Header from './components/nav/Header.js';
@@ -14,7 +15,7 @@ function App() {
   return (
     <main>
     <Router className="header">
-    <Header/>
+    <Header className="sticky"/>
       <Routes>
         <Route exact path='/' element={<Home/>} />
         <Route path='/wardrobe' element={<Wardrobe/>} />

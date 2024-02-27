@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "../pages/Home";
+import '../../index.css';
 // import './Header.css';
 // import { useAuth0 } from '@auth0/auth0-react';
 // import LogoutButton from '../auth/LogoutButton';
@@ -7,7 +8,7 @@ import Home from "../pages/Home";
 export default function Header() {
     // const { isAuthenticated } = useAuth0();
     return (
-        <header>
+        <header className="fixed-div">
             <nav>
                 <ul className="navbar">
                     {/* {isAuthenticated && (

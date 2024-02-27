@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from "react";
+import '../../index.css';
 
 const Wardrobe = () => {
+    const [data, setData] = useState();
     const [id, setId] = useState("");
     const [Have, setHave] = useState();
+    const urlWardrobe = "http://localhost:8080/wardrobe/all";
 
     function iHaveThat() {
         const finalFormEndpointUpdate = "http://localhost:8080/wardrobe/update/" + id;
@@ -23,11 +26,21 @@ const Wardrobe = () => {
             })
             .then((updatedDate) => {});
     }
+
+    const fetchInfo = async () => {
+        await fetch(urlWardrobe)
+          .then((res) => res.json())
+          .then((d) => setData(d));
+      };
+      useEffect(() => {
+        fetchInfo();
+      }, []);
+
     return (
-        <>
         <div>
-            <h1 className="sticky">My Wardrobe</h1>
-            <button type="button" className="sticky" onSubmit={iHaveThat}>Save</button>
+        <div className="sticky">
+            <h1>My Wardrobe</h1>
+            <button type="button" onSubmit={iHaveThat}>Save</button>
         </div>
         <div className="suit">
             <h2>Suit</h2>
@@ -187,7 +200,7 @@ const Wardrobe = () => {
             <h3></h3>
         </div>
 
-        </>
+        </div>
     )
 
 }

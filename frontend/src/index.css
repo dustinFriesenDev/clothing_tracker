@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.fixed-div {
+  position: fixed;
+  top: 0;
+  right: 20px;
+  height: 70px;
+  
+}
+
+.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: white;
+  width: 250px;
+  padding-bottom: 20px;
+}
