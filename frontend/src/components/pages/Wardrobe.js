@@ -36,12 +36,25 @@ const Wardrobe = () => {
         fetchInfo();
       }, []);
 
+
+      const displayWardrobe = data.map((item) => {
+        return (
+            <div key={item.id}>
+                <label id={item.id}>{`${item.style} ${item.type}`}</label>
+                <label>Have It
+                    <input type="checkbox" name={item.id} />
+                </label>
+            </div>
+        )
+      });
+
     return (
         <div>
         <div className="sticky">
             <h1>My Wardrobe</h1>
             <button type="button" onSubmit={iHaveThat}>Save</button>
         </div>
+        {displayWardrobe}
         <div className="suit">
             <h2>Suit</h2>
             <div className="sub-suit">
