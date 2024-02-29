@@ -36,6 +36,13 @@ const Wardrobe = () => {
         fetchInfo();
       }, []);
 
+      const displaySuit = data.map((item) => {
+        if({item.type} == "suit"){
+            return (
+                <label id={item.id}>{`${item.style} ${item.type}`}</label>
+            )
+        }
+      });
 
       const displayWardrobe = data.map((item) => {
         return (
