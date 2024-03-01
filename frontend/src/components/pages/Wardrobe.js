@@ -37,7 +37,7 @@ const Wardrobe = () => {
       }, []);
 
       const displaySuit = data.map((item) => {
-        if({item.type} == "suit"){
+        if(item.type == "suit"){
             return (
                 <label id={item.id}>{`${item.style} ${item.type}`}</label>
             )
@@ -61,7 +61,7 @@ const Wardrobe = () => {
             <h1>My Wardrobe</h1>
             <button type="button" onSubmit={iHaveThat}>Save</button>
         </div>
-        {displayWardrobe}
+        {displaySuit}
         <div className="suit">
             <h2>Suit</h2>
             <div className="sub-suit">
