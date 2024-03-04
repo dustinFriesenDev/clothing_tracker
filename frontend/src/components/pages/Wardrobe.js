@@ -2,11 +2,12 @@ import React, {useState, useEffect} from "react";
 import '../../index.css';
 
 const Wardrobe = () => {
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
     const [id, setId] = useState("");
     const [Have, setHave] = useState();
     const urlWardrobe = "http://localhost:8080/wardrobe/all";
 
+    //PUT method
     function iHaveThat() {
         const finalFormEndpointUpdate = "http://localhost:8080/wardrobe/update/" + id;
         const updatedData = {
@@ -27,6 +28,7 @@ const Wardrobe = () => {
             .then((updatedDate) => {});
     }
 
+    //GET method
     const fetchInfo = async () => {
         await fetch(urlWardrobe)
           .then((res) => res.json())
@@ -36,28 +38,28 @@ const Wardrobe = () => {
         fetchInfo();
       }, []);
 
-      const displaySuit = data.map((item) => {
-        if(item.type == "suit"){
-            return (
-                <label id={item.id}>{`${item.style} ${item.type}`}</label>
-            )
-        }
-      });
+    //   const displaySuit = data.map((item) => {
+    //     if(item.type == "suit"){
+    //         return (
+    //             <label id={item.id}>{`${item.style} ${item.type}`}</label>
+    //         )
+    //     }
+    //   });
 
-      const displayDressy = data.map((item) => {
-        if(item.style == "dressy"){
-            return (
-                <label id={item.id}>{`${item.style} ${item.type}`}</label>
-            )
-        }
-      });
+    //   const displayDressy = data.map((item) => {
+    //     if(item.style == "dressy"){
+    //         return (
+    //             <label id={item.id}>{`${item.style} ${item.type}`}</label>
+    //         )
+    //     }
+    //   });
 
       const displayWardrobe = data.map((item) => {
         return (
             <div key={item.id}>
                 <label id={item.id}>{`${item.style} ${item.type}`}</label>
                 <label>Have It
-                    <input type="checkbox" name={item.id} />
+                    <input type="checkbox" name={item.id}/>
                 </label>
             </div>
         )
@@ -67,10 +69,16 @@ const Wardrobe = () => {
         <div>
         <div className="sticky">
             <h1>My Wardrobe</h1>
-            <button type="button" onSubmit={iHaveThat}>Save</button>
+            <button type="submit">Save</button>
         </div>
-        {displaySuit}
-        {displayDressy}
+        <form onSubmit={iHaveThat}>
+            {displayWardrobe}
+        </form>
+
+        
+       
+        {/* {displaySuit}
+        {displayDressy} */}
         <div className="suit">
             <h2>Suit</h2>
             <div className="sub-suit">
