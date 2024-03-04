@@ -4,6 +4,7 @@ import com.clothes.tracker.data.WardrobeRepository;
 import com.clothes.tracker.dto.WardrobeDTO;
 import com.clothes.tracker.model.Wardrobe;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.client.RestClientBuilderConfigurer;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,12 @@ public class WardrobeController {
         return wardrobeRepository.findAll();
     }
 
-    @PutMapping("/update/{id}")
+    @PostMapping("/new")
+    public Wardrobe newItem(@RequestBody Wardrobe newWardrobe){
+        return wardrobeRepository
+    }
+
+    @PatchMapping("/update/{id}")
     public Wardrobe updateWardrobe(@PathVariable int id, @RequestBody Wardrobe newWardrobe){
         return wardrobeRepository.findById(id)
                 .map(clothes -> {
