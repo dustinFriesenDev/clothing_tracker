@@ -38,39 +38,41 @@ const Wardrobe = () => {
         fetchInfo();
       }, []);
 
+    function displayByCategory(style){
+        let category = [];
+        data.filter((item)=>{
+            if(item.style.includes(style)){
+                category.push(item);
+            }
+            
+        })
         
-
-    const filterByCategory = (style) =>{
-      data.filter((item)=>{
-        if(item.style.includes(style)){
-            return item;      
-        }
-        })}
-
-    const displayByCategory = (style) =>{ filterByCategory(style).map((item)=>{
+        const displayCategory = category.map((clothing)=>{
             return (
-                <div key={item.id}>
-                <label id={item.id}>{`${item.style} ${item.type}`}</label>
+                <div key={clothing.id}>
+                <label id={clothing.id}>{`${clothing.style} ${clothing.type}`}</label>
                 <label> Have It
-                    <input type="checkbox" name={item.id}/>
+                    <input type="checkbox" name={clothing.id}/>
                     </label>
             </div>
             )
-        })}
+        })
+        return displayCategory;
+    }
 
     //HTML
     return (
         <div>
         <div className="sticky">
             <h1>My Wardrobe</h1>
-            <button type="submit">Save</button>
+            
         </div>
         <form onSubmit={iHaveThat}>
+        <button type="submit">Save</button>
             <h3>Dressy</h3>
-            {filterByCategory("dressy")}
-            {displayByCategory}
+            {displayByCategory("dressy")}
             <h3>Suit</h3>
-            {displayByCategory}
+            {displayByCategory("suit")}
         </form>
 
         
