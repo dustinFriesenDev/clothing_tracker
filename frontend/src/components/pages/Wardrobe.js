@@ -54,13 +54,27 @@ const Wardrobe = () => {
     //     }
     //   });
 
-    const displayByCategory = data.filter(item) => {
-        if(item.category == "dressy"){
-            return item;
-        } else if (item.category == "casual"){
-            return item;
+    const displayByCategory = data.filter((item) => {
+        if(item.category.toLowerCase() == "dressy"){
+            return (
+                <div key={item.id}>
+                    <label id={item.id}>{`${item.style} ${item.type}`}</label>
+                    <label>Have It
+                        <input type="checkbox" name={item.id}/>
+                    </label>
+                </div>
+            );
+        } else if (item.category.toLowerCase() == "casual"){
+            return (
+                <div key={item.id}>
+                    <label id={item.id}>{`${item.style} ${item.type}`}</label>
+                    <label>Have It
+                        <input type="checkbox" name={item.id}/>
+                    </label>
+                </div>
+            );
         }
-    }
+    })
 
       const displayWardrobe = data.map((item) => {
         return (
