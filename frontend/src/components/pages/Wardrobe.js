@@ -38,55 +38,27 @@ const Wardrobe = () => {
         fetchInfo();
       }, []);
 
-    //   const displaySuit = data.map((item) => {
-    //     if(item.type == "suit"){
-    //         return (
-    //             <label id={item.id}>{`${item.style} ${item.type}`}</label>
-    //         )
-    //     }
-    //   });
+        
 
-    //   const displayDressy = data.map((item) => {
-    //     if(item.style == "dressy"){
-    //         return (
-    //             <label id={item.id}>{`${item.style} ${item.type}`}</label>
-    //         )
-    //     }
-    //   });
-
-    const displayByCategory = data.filter((item) => {
-        if(item.category.toLowerCase() == "dressy"){
-            return (
-                <div key={item.id}>
-                    <label id={item.id}>{`${item.style} ${item.type}`}</label>
-                    <label>Have It
-                        <input type="checkbox" name={item.id}/>
-                    </label>
-                </div>
-            );
-        } else if (item.category.toLowerCase() == "casual"){
-            return (
-                <div key={item.id}>
-                    <label id={item.id}>{`${item.style} ${item.type}`}</label>
-                    <label>Have It
-                        <input type="checkbox" name={item.id}/>
-                    </label>
-                </div>
-            );
+    const filterByCategory = (style) =>{
+      data.filter((item)=>{
+        if(item.style.includes(style)){
+            return item;      
         }
-    })
+        })}
 
-      const displayWardrobe = data.map((item) => {
-        return (
-            <div key={item.id}>
+    const displayByCategory = (style) =>{ filterByCategory(style).map((item)=>{
+            return (
+                <div key={item.id}>
                 <label id={item.id}>{`${item.style} ${item.type}`}</label>
-                <label>Have It
+                <label> Have It
                     <input type="checkbox" name={item.id}/>
-                </label>
+                    </label>
             </div>
-        )
-      });
+            )
+        })}
 
+    //HTML
     return (
         <div>
         <div className="sticky">
@@ -94,14 +66,18 @@ const Wardrobe = () => {
             <button type="submit">Save</button>
         </div>
         <form onSubmit={iHaveThat}>
-            {displayWardrobe}
+            <h3>Dressy</h3>
+            {filterByCategory("dressy")}
+            {displayByCategory}
+            <h3>Suit</h3>
+            {displayByCategory}
         </form>
 
         
        
         {/* {displaySuit}
         {displayDressy} */}
-        <div className="suit">
+        {/* <div className="suit">
             <h2>Suit</h2>
             <div className="sub-suit">
                 <h3>Suit Coat</h3>
@@ -257,7 +233,7 @@ const Wardrobe = () => {
         <div className="belt">
             <h2>Belts</h2>
             <h3></h3>
-        </div>
+        </div> */}
 
         </div>
     )
