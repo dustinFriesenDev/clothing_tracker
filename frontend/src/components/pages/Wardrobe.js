@@ -15,7 +15,7 @@ const Wardrobe = () => {
         };
 
         fetch(finalFormEndpointUpdate, {
-            method: "PUT",
+            method: "PATCH",
             headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -53,6 +53,14 @@ const Wardrobe = () => {
     //         )
     //     }
     //   });
+
+    const displayByCategory = data.filter(item) => {
+        if(item.category == "dressy"){
+            return item;
+        } else if (item.category == "casual"){
+            return item;
+        }
+    }
 
       const displayWardrobe = data.map((item) => {
         return (

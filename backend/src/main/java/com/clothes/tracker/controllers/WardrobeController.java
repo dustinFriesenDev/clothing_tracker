@@ -22,10 +22,6 @@ public class WardrobeController {
         return wardrobeRepository.findAll();
     }
 
-    @PostMapping("/new")
-    public Wardrobe newItem(@RequestBody Wardrobe newWardrobe){
-        return wardrobeRepository
-    }
 
     @PatchMapping("/update/{id}")
     public Wardrobe updateWardrobe(@PathVariable int id, @RequestBody Wardrobe newWardrobe){
