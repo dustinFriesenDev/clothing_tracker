@@ -46,11 +46,5 @@ public class WardrobeController {
         for (Wardrobe wardrobe : newWardrobe){
             wardrobeRepository.updateItem(wardrobe.getId(), wardrobe.isHave());
         }
-
-
-
-        List<Wardrobe> wardrobeItems = new ArrayList<>();
-        for (int i = 0)
-
-
+        
 }
