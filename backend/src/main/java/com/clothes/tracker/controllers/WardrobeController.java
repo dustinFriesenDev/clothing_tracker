@@ -43,8 +43,10 @@ public class WardrobeController {
     //PATCH HAVE IT for multiple items of clothing
     @PutMapping("/update")
     public Wardrobe updateWardrobe(@RequestBody List<Wardrobe> newWardrobe){
-        for (Wardrobe wardrobe : newWardrobe){
-            wardrobeRepository.updateItem(wardrobe.getId(), wardrobe.isHave());
-        }
-        
+        List<Wardrobe> checked = new ArrayList<>();
+        wardrobeRepository.findById()
+            return wardrobeRepository.save(checked);
+    }
+
+
 }
