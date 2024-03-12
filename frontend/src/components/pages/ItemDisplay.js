@@ -1,7 +1,13 @@
-import Wardrobe from "./Wardrobe";
+import React from "react";
 
-function ItemDisplay() {
+const ItemDisplay = () => {
+    return(
+        <div className="display-container">
+            <form>
 
+            </form>
+        </div>
+    )
 
 }
     export default ItemDisplay;
