@@ -11,9 +11,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WardrobeRepository extends JpaRepository<Wardrobe, Integer> {
 
-    @Modifying
-    @Transactional
-    @Query("UPDATE Wardrobe u SET u.id = :id, u.have = :isHave")
-    void updateItem(@Param("id") int id, @Param("have") Boolean have);
-
 }
