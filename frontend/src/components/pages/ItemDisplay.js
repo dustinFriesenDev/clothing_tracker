@@ -1,13 +1,15 @@
 import React from "react";
 
-const ItemDisplay = () => {
-    return(
-        <div className="display-container">
-            <form>
+const ItemDisplay = (db) => {
+    db.map((item) => {
+        return(
+            <div className="display-container">
+                <form>
 
-            </form>
-        </div>
-    )
+                </form>
+            </div>
+        )
+    })
 
 }
     export default ItemDisplay;
