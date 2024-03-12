@@ -7,9 +7,12 @@ const Wardrobe = () => {
     const [id, setId] = useState("");
     const [Have, setHave] = useState();
     const urlWardrobe = "http://localhost:8080/wardrobe/all";
+    const btn = document.querySelectorAll("button");
 
     //PUT method
-    function iHaveThat() {
+    const iHaveThat = (e) => {
+        
+        e.preventDefault();
         const finalFormEndpointUpdate = "http://localhost:8080/wardrobe/update/" + id;
         const updatedData = {
             "have" : Have
@@ -26,6 +29,8 @@ const Wardrobe = () => {
             .then((response) => {
             return response.json();
             });
+
+            console.log(trialClick());
             
     }
 
@@ -39,18 +44,24 @@ const Wardrobe = () => {
         fetchInfo();
       }, []);
 
-      useEffect(()=>{
-        console.log(document.querySelectorAll("button").length);
-        
-    },[]);
+    //   useEffect(()=>{
+    //     console.log(document.querySelectorAll("button").length);
+    // },[]);
 
     const clicked = (e) => {
         setClick(e.target.id);
+        console.log(btn);
     }
 
-    const updateHave =() => {
-        console.log(clicked);
+    const trialClick = () => {
+        
+            for (const btnId of btn){
+                if (Number(click) == btnId.id){
+                   return "hope";
+                }
+            }
     }
+
 
     //display default categories
     function displayByCategory(style){
@@ -65,7 +76,7 @@ const Wardrobe = () => {
                 <div key={clothing.id} className="clothing-description">
                     <div>
                         <label>{`${clothing.style} ${clothing.type}`}</label>
-                        <button  id={clothing.id} type="button" onClick={clicked}>Have It</button>
+                        <button  id={clothing.id} type="submit" onClick={clicked}>Have It</button>
                     </div>
             </div>
             )
