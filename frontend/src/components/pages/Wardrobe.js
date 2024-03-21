@@ -2,10 +2,10 @@ import React, {useState, useEffect} from "react";
 import '../../index.css';
 
 const Wardrobe = () => {
+    const {id} = useState();
     const [data, setData] = useState([]);
     const [click, setClick] = useState("");
-    const [id, setId] = useState("");
-    const [Have, setHave] = useState();
+    const [Have, setHave] = useState(false);
     const urlWardrobe = "http://localhost:8080/wardrobe/all";
     const btn = document.querySelectorAll("button");
 
@@ -29,9 +29,6 @@ const Wardrobe = () => {
             .then((response) => {
             return response.json();
             });
-
-            console.log(trialClick());
-            
     }
 
     //GET method
@@ -44,24 +41,15 @@ const Wardrobe = () => {
         fetchInfo();
       }, []);
 
-    //   useEffect(()=>{
-    //     console.log(document.querySelectorAll("button").length);
-    // },[]);
 
     const clicked = (e) => {
         setClick(e.target.id);
         console.log(btn);
     }
 
-    const trialClick = () => {
-        
-            for (const btnId of btn){
-                if (Number(click) == btnId.id){
-                   return "hope";
-                }
-            }
+    const checkHave = () => {
+        setHave(!Have);
     }
-
 
     //display default categories
     function displayByCategory(style){
@@ -76,6 +64,7 @@ const Wardrobe = () => {
                 <div key={clothing.id} className="clothing-description">
                     <div>
                         <label>{`${clothing.style} ${clothing.type}`}</label>
+                        <input type="checkbox" id="Have" checked={Have} onChange={checkHave} />
                         <button  id={clothing.id} type="submit" onClick={clicked}>Have It</button>
                     </div>
             </div>
