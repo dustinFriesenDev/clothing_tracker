@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import '../../index.css';
 
 const Wardrobe = () => {
-    const {id} = useState();
+    const [id, setId] = useState("");
     const [data, setData] = useState([]);
     const [click, setClick] = useState("");
     const [Have, setHave] = useState(false);
@@ -15,6 +15,7 @@ const Wardrobe = () => {
         e.preventDefault();
         const finalFormEndpointUpdate = "http://localhost:8080/wardrobe/update/" + id;
         const updatedData = {
+            //add other columns to keep information the same. add useState to set state for each variable.
             "have" : Have
         };
 
@@ -44,11 +45,13 @@ const Wardrobe = () => {
 
     const clicked = (e) => {
         setClick(e.target.id);
-        console.log(btn);
+        setId(e.target.id);
     }
 
-    const checkHave = () => {
-        setHave(!Have);
+    const checkHave = (e) => {
+        if(click === e.target.id){
+            setHave(!Have);
+        }
     }
 
     //display default categories
@@ -61,13 +64,15 @@ const Wardrobe = () => {
         })
         const displayCategory = category.map((clothing)=>{
             return (
-                <div key={clothing.id} className="clothing-description">
+                <form key={clothing.id} onSubmit={iHaveThat} method="PATCH">
+                <div  className="clothing-description">
                     <div>
-                        <label>{`${clothing.style} ${clothing.type}`}</label>
-                        <input type="checkbox" id="Have" checked={Have} onChange={checkHave} />
-                        <button  id={clothing.id} type="submit" onClick={clicked}>Have It</button>
+                        <label id="verify">{`${clothing.style} ${clothing.type}`}</label>
+                        <input type="checkbox" id={clothing.id} checked={Have} onChange={checkHave} onClick={clicked} />
+                        <button type="submit">Save</button>
                     </div>
-            </div>
+                </div>
+                </form>
             )
         })
         return displayCategory;
@@ -80,13 +85,13 @@ const Wardrobe = () => {
                 <h1>My Wardrobe</h1>   
             </div>
             
-            <form onSubmit={iHaveThat} method='PATCH'>
+            
             <button type="submit">Save</button>
                 <h3>Dressy</h3>
                 {displayByCategory("dressy")}
                 <h3>Suit</h3>
                 {displayByCategory("suit")}
-            </form>
+            
         </div>
     )
 
