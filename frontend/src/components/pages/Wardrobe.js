@@ -8,7 +8,7 @@ const Wardrobe = () => {
     const [click, setClick] = useState("");
     const [amount, setAmount] = useState();
     const [color, setColor] = useState();
-    const [have, setHave] = useState(false);
+    const [have, setHave] = useState();
     const [season, setSeason] = useState();
     const [size, setSize] = useState();
     const [style, setStyle] = useState();
@@ -58,11 +58,21 @@ const Wardrobe = () => {
     const clicked = (e) => {
         setClick(e.target.id);
         setId(e.target.id);
+        setAmount(e.target.parentElement.childNodes[1].id)
+        setColor(e.target.parentElement.childNodes[2].id)
+        setSeason(e.target.parentElement.childNodes[3].id)
+        setSize(e.target.parentElement.childNodes[4].id)
+        setStyle(e.target.parentElement.childNodes[5].id)
+        setTypeOfItem(e.target.parentElement.childNodes[0].id)
+        if(click === e.target.id){
+            setHave(!have);
+        }
     }
 
     const checkHave = (e) => {
         if(click === e.target.id){
             setHave(!have);
+            e.target.checked = have;
         }
     }
 
@@ -79,9 +89,13 @@ const Wardrobe = () => {
                 <form key={clothing.id} onSubmit={iHaveThat} method="PATCH">
                 <div  className="clothing-description">
                     <div>
-                        <label value={clothing.type}>{`${clothing.style} ${clothing.type}`}</label>
-                        
-                        <input type="checkbox" id={clothing.id} checked={have} onChange={checkHave} onClick={clicked} />
+                        <label id={clothing.type}>{`${clothing.style} ${clothing.type}`}</label>
+                        <label id={clothing.amount}> {clothing.amount}</label>
+                        <label id={clothing.color}> {clothing.color}</label>
+                        <label id={clothing.season}> {clothing.season}</label>
+                        <label id={clothing.size} hidden></label>
+                        <label id={clothing.style}> {clothing.style}</label>
+                        <input type="checkbox" id={clothing.id} checked={clothing.have} onChange={checkHave} onClick={clicked} />
                         <button type="submit">Save</button>
                     </div>
                 </div>
