@@ -58,23 +58,39 @@ const Wardrobe = () => {
     const clicked = (e) => {
         setClick(e.target.id);
         setId(e.target.id);
-        setAmount(e.target.parentElement.childNodes[1].id)
-        setColor(e.target.parentElement.childNodes[2].id)
-        setSeason(e.target.parentElement.childNodes[3].id)
-        setSize(e.target.parentElement.childNodes[4].id)
-        setStyle(e.target.parentElement.childNodes[5].id)
-        setTypeOfItem(e.target.parentElement.childNodes[0].id)
+        setAmount(e.target.parentElement.childNodes[1].id);
+        setColor(e.target.parentElement.childNodes[2].id);
+        setSeason(e.target.parentElement.childNodes[3].id);
+        setSize(e.target.parentElement.childNodes[4].id);
+        setStyle(e.target.parentElement.childNodes[5].id);
+        setTypeOfItem(e.target.parentElement.childNodes[0].id);
+        setHave(e.target.parentElement.childNodes[6].checked);
         if(click === e.target.id){
             setHave(!have);
+            e.target.parentElement.childNodes[6].checked = have;
+        }
+        // if(have === null || have === undefined){
+        //     setHave(e.target.parentElement.childNodes[6].checked);
+        // }
+        console.log(have);
+    }
+
+    const changeCheck = (e) => {
+        if(click === e.target.id){
+            setHave(!have)
+            e.target.checked = !have;
+            console.log(e.target.checked)
         }
     }
 
-    const checkHave = (e) => {
-        if(click === e.target.id){
-            setHave(!have);
-            e.target.checked = have;
-        }
-    }
+    // const checkHave = (e) => {
+    //     if(e){
+    //         setHave("true");
+    //     } else {
+    //         setHave("false");
+    //     }
+    //     return have;
+    // }
 
     //display default categories
     function displayByCategory(style){
@@ -95,7 +111,7 @@ const Wardrobe = () => {
                         <label id={clothing.season}> {clothing.season}</label>
                         <label id={clothing.size} hidden></label>
                         <label id={clothing.style}> {clothing.style}</label>
-                        <input type="checkbox" id={clothing.id} checked={clothing.have} onChange={checkHave} onClick={clicked} />
+                        <input type="checkbox" id={clothing.id} checked={clothing.have} onChange={changeCheck} onClick={clicked} />
                         <button type="submit">Save</button>
                     </div>
                 </div>
