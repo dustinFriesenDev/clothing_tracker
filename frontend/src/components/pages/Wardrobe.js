@@ -21,7 +21,6 @@ const Wardrobe = () => {
         e.preventDefault();
         const finalFormEndpointUpdate = "http://localhost:8080/wardrobe/update/" + id;
         const updatedData = {
-            //add other columns to keep information the same. add useState to set state for each variable.
             "amount" : amount,
             "color" : color,
             "have" : have,
@@ -65,32 +64,13 @@ const Wardrobe = () => {
         setStyle(e.target.parentElement.childNodes[5].id);
         setTypeOfItem(e.target.parentElement.childNodes[0].id);
         setHave(e.target.parentElement.childNodes[6].checked);
-        if(click === e.target.id){
-            setHave(!have);
-            e.target.parentElement.childNodes[6].checked = have;
-        }
-        // if(have === null || have === undefined){
-        //     setHave(e.target.parentElement.childNodes[6].checked);
-        // }
-        console.log(have);
     }
 
     const changeCheck = (e) => {
         if(click === e.target.id){
-            setHave(!have)
-            e.target.checked = !have;
-            console.log(e.target.checked)
+            setHave(!have);
         }
     }
-
-    // const checkHave = (e) => {
-    //     if(e){
-    //         setHave("true");
-    //     } else {
-    //         setHave("false");
-    //     }
-    //     return have;
-    // }
 
     //display default categories
     function displayByCategory(style){
@@ -100,6 +80,7 @@ const Wardrobe = () => {
                 category.push(item);
             }
         })
+
         const displayCategory = category.map((clothing)=>{
             return (
                 <form key={clothing.id} onSubmit={iHaveThat} method="PATCH">
@@ -112,7 +93,7 @@ const Wardrobe = () => {
                         <label id={clothing.size} hidden></label>
                         <label id={clothing.style}> {clothing.style}</label>
                         <input type="checkbox" id={clothing.id} checked={clothing.have} onChange={changeCheck} onClick={clicked} />
-                        <button type="submit">Save</button>
+                        <a href="./Edit.js">Edit</a>
                     </div>
                 </div>
                 </form>
@@ -127,14 +108,9 @@ const Wardrobe = () => {
             <div className="sticky">
                 <h1>My Wardrobe</h1>   
             </div>
-            
-            
-            <button type="submit">Save</button>
-                <h3>Dressy</h3>
-                {displayByCategory("dressy")}
-                <h3>Suit</h3>
-                {displayByCategory("suit")}
-            
+            {displayByCategory("dressy")}
+            {displayByCategory("suit")}
+            {displayByCategory("casual")}
         </div>
     )
 
