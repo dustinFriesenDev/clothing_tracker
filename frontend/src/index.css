@@ -28,3 +28,9 @@ code {
   width: 250px;
   padding-bottom: 20px;
 }
+
+footer {
+  position: -webkit-sticky;
+  position: absolute;
+  bottom: 0;
+}
